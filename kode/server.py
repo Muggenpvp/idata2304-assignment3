@@ -50,6 +50,8 @@ def main():
         conn, addr = accept_connection(server_socket)
         print(f"Server connected with {addr}")
 
+        conn.sendall(b"Welcome to smart tv server. Type quit to exit.\n")
+
         while True:
             command = receive_command(conn)
 

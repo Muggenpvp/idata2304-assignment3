@@ -18,6 +18,7 @@ class SmartTV():
                 return f"Channel {channel} does not exist"
 
             self.selectedChannel = channel
+            return f"Selected channel {channel}"
 
     def get_selected_channel(self):
         if self.isTurnedOn == True:

@@ -21,11 +21,25 @@ def handle_command(tv, command):
             return "TV is already turned off"
         tv.turn_off()
         
+    elif cmd == "channel":
+        if args == "amount":
+            return f"There are {tv.get_amount_of_channels()} channels"
+        elif args == "selected":
+            return f"Channel {tv.get_selected_channel()} is currently selected"
+        elif args == "up":
+            return tv.set_selected_channel(tv.get_selected_channel() + 1)
+        elif args == "down":
+            return tv.set_selected_channel(tv.get_selected_channel() - 1)
+
     elif cmd == "help":
         return (
             "Supported commands:\n"
             "-on\n"
             "-off\n"
+            "-channel amount\n"
+            "-channel selected\n"
+            "-channel up\n"
+            "-channel down\n"
             "-help\n"
         )
     
