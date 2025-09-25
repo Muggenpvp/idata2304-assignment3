@@ -2,20 +2,29 @@ class SmartTV():
     isTurnedOn = False
     selectedChannel = 1
 
-    def __init__(self, amountOfChannels):
+    def __init__(self, amountOfChannels=5):
         self.amountOfChannels = amountOfChannels
 
-    def isOn(self):
+    def is_on(self):
         return self.isTurnedOn
     
-    def getAmountOfChannels(self):
-        return self.amountOfChannels
+    def get_amount_of_channels(self):
+        if self.isTurnedOn == True:
+            return self.amountOfChannels
     
-    def setSelectedChannel(self, channel):
-        if channel not in range(1,self.amountOfChannels):
-            return f"Channel {channel} does not exist"
+    def set_selected_channel(self, channel):
+        if self.isTurnedOn == True:
+            if channel not in range(1,self.amountOfChannels):
+                return f"Channel {channel} does not exist"
 
-        self.selectedChannel = channel
+            self.selectedChannel = channel
 
-    def getSelectedChannel(self):
-        return self.selectedChannel
+    def get_selected_channel(self):
+        if self.isTurnedOn == True:
+            return self.selectedChannel
+        
+    def turn_on(self):
+        self.isTurnedOn = True
+
+    def turn_off(self):
+        self.isTurnedOn = False
